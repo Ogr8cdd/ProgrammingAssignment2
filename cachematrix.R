@@ -1,7 +1,10 @@
-## Put comments here that give an overall description of what your
-## functions do
+## Two functions 
+## makecacheMatrix container for 4 function get, set, setInv, getInv
+## get <- will get the value that has previously been stored in the makecacheMatrix environment
+## set <- will put the object into the makecacheMatrix environment
+## getInv <- will get the matrix inverse
+## setInv <- will inverse the matrix passed to cashSolve
 
-## Write a short comment describing this function
 
 makeCacheMatrix <- function(x = matrix()) {
   m_mat <- NULL
@@ -16,13 +19,15 @@ makeCacheMatrix <- function(x = matrix()) {
   list (get =get, set = set, setInv = setInv, getInv = getInv)
 }
 
-## Write a short comment describing this function
+## This function checks to see if the inverse of the matrix has been stored in cache
+## if it has, it returns the cached version
+## if not, it inverses the matrix and then stores it to cache
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
-    mat <- x$getInv()
-    if(!is.null(mat)){
-      return(mat)
+    m_mat <- x$getInv()
+    if(!is.null(m_mat)){
+      return(m_mat)
     }
     disp_mat <- x$get()
     inv <- solve(disp_mat)    
