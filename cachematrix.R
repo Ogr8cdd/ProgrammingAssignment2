@@ -19,9 +19,10 @@ makeCacheMatrix <- function(x = matrix()) {
   list (get =get, set = set, setInv = setInv, getInv = getInv)
 }
 
-## This function checks to see if the inverse of the matrix has been stored in cache
+## The cacheSolve function checks to see if the inverse of the matrix has been stored in cache
 ## if it has, it returns the cached version
 ## if not, it inverses the matrix and then stores it to cache
+## x will Contain a list of functions pointing to makecacheMatrix
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
